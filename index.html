@@ -81,6 +81,14 @@
       <img src="telescopio.png" alt="Ícone Telescópio" class="icon">
     </button>
 
+    <button class="btn-foton" id="btnFoton">
+      <img src="foton.png" alt="Ícone Foton" class="icon">
+    </button>
+
+    <button class="btn-pressao" id="btnPressao">
+      <img src="pressao.png" alt="Ícone Pressão" class="icon">
+    </button>
+
     <button class="btn-yoda" id="btnYoda">
       <img src="yoda.png" alt="Ícone Yoda" class="icon">
     </button>
@@ -165,6 +173,145 @@
       <button class="btn-subprojeto" id="btnBreedlove">BREEDLOVE</button>
       <button class="btn-subprojeto" id="btnNned">NNEDI</button>
       <button class="btn-subprojeto" id="btnMaathai">MAATHAI</button>
+    </div>
+  </div>
+
+  <div class="modal-foton" id="modalFoton">
+    <div class="foton-panel">
+      <button id="btnCloseFoton">&times;</button>
+      <p class="foton-intro">Esta atividade interativa apresenta um storytelling envolvente sobre óptica. Ao explorar a história, você resolverá questões de óptica e coletará senhas que aparecerão para iluminar o núcleo fotônico, revelando os segredos da luz e da visão.</p>
+      <div class="container-wrapper-genially" style="position: relative; min-height: 400px; max-width: 100%;">
+        <video class="loader-genially" autoplay="autoplay" loop="loop" playsinline="playsInline" muted="muted" style="position: absolute;top: 45%;left: 50%;transform: translate(-50%, -50%);width: 80px;height: 80px;margin-bottom: 10%">
+          <source src="https://static.genially.com/resources/loader-default-rebranding.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div id="687866d0d7f4545b1175a15d" class="genially-embed" style="margin: 0px auto; position: relative; height: auto; width: 100%;"></div>
+      </div>
+      <iframe src="https://rjfontana.github.io/foton/" style="width: 100%; height: 600px; border: none; margin-top: 20px;"></iframe>
+    </div>
+  </div>
+
+  <div class="modal-pressao" id="modalPressao">
+    <div class="pressao-panel">
+      <button id="btnClosePressao">&times;</button>
+      <iframe src="https://scratch.mit.edu/projects/1239452553/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+      
+      <div class="pressao-quiz">
+        <h2>📚 Quiz de Pressão</h2>
+        
+        <div class="exercicio">
+          <h3>🧠 Exercício 1</h3>
+          <p><strong>Ao descer no simulador, o que acontece com a pressão?</strong></p>
+          <div class="opcoes">
+            <label><input type="radio" name="ex1" value="a"> a) Diminui</label>
+            <label><input type="radio" name="ex1" value="c"> c) Aumenta</label>
+            <label><input type="radio" name="ex1" value="b"> b) Permanece igual</label>
+          </div>
+          <button class="btn-resposta" onclick="mostrarResposta('ex1')">Enviar Resposta</button>
+          <div id="resposta-ex1" class="resposta oculta">
+            ✅ <strong>Resposta correta: c) Aumenta</strong><br>
+            A pressão aumenta conforme descemos na água porque há mais água acima de nós.
+          </div>
+          
+          <p style="margin-top: 1rem;"><strong>👉 Pergunta aberta:</strong></p>
+          <p>Explique com base no que você observa no mergulhador:</p>
+          <textarea id="pergunta1" placeholder="Sua resposta..." style="width: 100%; height: 80px; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+        </div>
+
+        <div class="exercicio">
+          <h3>🧠 Exercício 2</h3>
+          <p><strong>Em qual profundidade a pressão parece ser aproximadamente o dobro da superfície?</strong></p>
+          <input type="number" id="ex2" placeholder="Profundidade em metros" style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;">
+          <button class="btn-resposta" onclick="mostrarResposta('ex2')">Enviar Resposta</button>
+          <div id="resposta-ex2" class="resposta oculta">
+            ✅ <strong>Resposta correta: 10 metros</strong><br>
+            Explore o simulador e observe quando a pressão dobra em relação à superfície.
+          </div>
+        </div>
+
+        <div class="bloco">
+          <h2>📊 🧮 BLOCO 2 — Relação Matemática</h2>
+          <p>A relação entre pressão, profundidade e densidade é dada por:</p>
+          <div class="formula">
+            <strong>P = P₀ + ρgh</strong>
+          </div>
+          <p>Onde:</p>
+          <ul>
+            <li><strong>P</strong> = Pressão total</li>
+            <li><strong>P₀</strong> = Pressão atmosférica (1 atm)</li>
+            <li><strong>ρ</strong> = Densidade do fluido</li>
+            <li><strong>g</strong> = Aceleração da gravidade</li>
+            <li><strong>h</strong> = Profundidade</li>
+          </ul>
+        </div>
+
+        <div class="exercicio">
+          <h3>🧠 Exercício 3</h3>
+          <p><strong>Se o mergulhador está a 10 m, qual é aproximadamente a pressão?</strong></p>
+          <p><strong>Dados:</strong> P₀ = 1 atm | Cada 10 m ≈ +1 atm</p>
+          <input type="number" id="ex3" placeholder="Pressão em atm" step="0.1" style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;">
+          <button class="btn-resposta" onclick="verificarEx3()">Enviar Resposta</button>
+          <div id="resposta-ex3" class="resposta oculta">
+            ✅ <strong>Resposta correta: 2 atm</strong><br>
+            P = 1 atm + 1 atm = 2 atm
+          </div>
+        </div>
+
+        <div class="exercicio">
+          <h3>🧠 Exercício 4</h3>
+          <p><strong>Complete a tabela usando o simulador:</strong></p>
+          <table class="tabela-pressao">
+            <tr>
+              <th>Profundidade (m)</th>
+              <th>Pressão (atm)</th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td><input type="number" id="p0" placeholder="?" step="0.1"></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><input type="number" id="p10" placeholder="?" step="0.1"></td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td><input type="number" id="p20" placeholder="?" step="0.1"></td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td><input type="number" id="p30" placeholder="?" step="0.1"></td>
+            </tr>
+          </table>
+          <button class="btn-resposta" onclick="verificarTabela()">Enviar Tabela</button>
+          <div id="resposta-ex4" class="resposta oculta">
+            ✅ <strong>Valores corretos:</strong><br>
+            0 m → 1 atm<br>
+            10 m → 2 atm<br>
+            20 m → 3 atm<br>
+            30 m → 4 atm
+          </div>
+        </div>
+
+        <div class="bloco">
+          <h2>⚠️ 🧠 BLOCO 3 — Tomada de Decisão</h2>
+        </div>
+
+        <div class="exercicio">
+          <h3>🧠 Exercício 5</h3>
+          <p><strong>O mergulhador desce rapidamente até 30 m.</strong></p>
+          <p><strong>Quais riscos ele pode sofrer ao subir muito rápido?</strong></p>
+          <div class="opcoes">
+            <label><input type="radio" name="ex5" value="a"> a) Nenhum</label>
+            <label><input type="radio" name="ex5" value="b"> b) Compressão do ar</label>
+            <label><input type="radio" name="ex5" value="c"> c) Formação de bolhas no sangue</label>
+          </div>
+          <button class="btn-resposta" onclick="mostrarResposta('ex5')">Enviar Resposta</button>
+          <div id="resposta-ex5" class="resposta oculta">
+            ✅ <strong>Resposta correta: c) Formação de bolhas no sangue</strong><br>
+            Subir muito rápido causa descompressão descontrolada, formando bolhas de nitrogênio no sangue (doença do descompressor).
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -634,6 +781,8 @@
       </div>
     </div>
   </footer>
+
+  <script>(function (d) { var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0]; if (d.getElementById(id)) { return; } js = d.createElement("script"); js.id = id; js.async = true; js.src = "https://view.genially.com/static/embed/embed.js"; ref.parentNode.insertBefore(js, ref); }(document));</script>
 
   <script src="scripts.js" defer></script>
 </body>
