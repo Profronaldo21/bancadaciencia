@@ -347,4 +347,78 @@ document.addEventListener('DOMContentLoaded', () => {
       modalAstro.classList.remove('active');
     }
   });
+
+  // Foton modal event listeners
+  const btnFoton = document.getElementById('btnFoton');
+  const modalFoton = document.getElementById('modalFoton');
+  const btnCloseFoton = document.getElementById('btnCloseFoton');
+
+  btnFoton.addEventListener('click', () => {
+    modalFoton.classList.add('active');
+  });
+
+  btnCloseFoton.addEventListener('click', () => {
+    modalFoton.classList.remove('active');
+  });
+
+  modalFoton.addEventListener('click', (e) => {
+    if (e.target === modalFoton) {
+      modalFoton.classList.remove('active');
+    }
+  });
+
+  // Pressao modal event listeners
+  const btnPressao = document.getElementById('btnPressao');
+  const modalPressao = document.getElementById('modalPressao');
+  const btnClosePressao = document.getElementById('btnClosePressao');
+
+  btnPressao.addEventListener('click', () => {
+    modalPressao.classList.add('active');
+  });
+
+  btnClosePressao.addEventListener('click', () => {
+    modalPressao.classList.remove('active');
+  });
+
+  modalPressao.addEventListener('click', (e) => {
+    if (e.target === modalPressao) {
+      modalPressao.classList.remove('active');
+    }
+  });
+
+  // Funções para o Quiz de Pressão
+  window.mostrarResposta = function(exercicio) {
+    const respostaDiv = document.getElementById(`resposta-${exercicio}`);
+    if (respostaDiv) {
+      respostaDiv.classList.remove('oculta');
+    }
+  };
+
+  window.verificarEx3 = function() {
+    const valor = parseFloat(document.getElementById('ex3').value);
+    const respostaDiv = document.getElementById('resposta-ex3');
+    if (respostaDiv && (valor === 2 || valor === 2.0)) {
+      respostaDiv.classList.remove('oculta');
+    } else if (respostaDiv) {
+      respostaDiv.classList.remove('oculta');
+      respostaDiv.innerHTML = '❌ <strong>Resposta incorreta</strong><br>Tente novamente! Dica: P = 1 atm + 1 atm';
+    }
+  };
+
+  window.verificarTabela = function() {
+    const p0 = parseFloat(document.getElementById('p0').value);
+    const p10 = parseFloat(document.getElementById('p10').value);
+    const p20 = parseFloat(document.getElementById('p20').value);
+    const p30 = parseFloat(document.getElementById('p30').value);
+    const respostaDiv = document.getElementById('resposta-ex4');
+    
+    const correto = (p0 === 1 && p10 === 2 && p20 === 3 && p30 === 4);
+    
+    if (respostaDiv) {
+      respostaDiv.classList.remove('oculta');
+      if (!correto) {
+        respostaDiv.innerHTML = '⚠️ <strong>Alguns valores estão incorretos</strong><br>Verifique com o simulador!';
+      }
+    }
+  };
 });
